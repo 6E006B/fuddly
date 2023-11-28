@@ -66,7 +66,7 @@ def gather_pdf_objects(path=gr.imported_data_folder):
             buff = f.read()
 
     return None
-    
+
 
 class PDFObj(object):
     '''
@@ -139,7 +139,7 @@ class PDFObj(object):
 
 
     @staticmethod
-    def get_bool(name, vals=None):  
+    def get_bool(name, vals=None):
         if not vals:
             vals = ['true', 'false']
         e = Node(name, values=vals)
@@ -174,7 +174,7 @@ class PDFObj(object):
             return PDFObj.create_wrapped_obj(name, e)
         else:
             return e
- 
+
 
     @property
     def alphabet(self):
@@ -413,15 +413,15 @@ class PDFObj(object):
                 e_stream = Node('stream', values=[enc_stream])
 
             return e_filter, e_stream
-        
+
         e_filter, e_stream = {PDFObj.enc_Deflate: _encode_stream_zlib,
                               PDFObj.enc_ASCII: _encode_stream_ascii
                               }[enc_mode](stream, enc_stream)
-        
+
         e_filter_entry = make_wrapped_node('E_Filter',
                                           node = e_filter,
                                           prefix = ["/Filter "])
-        
+
         def gen_length_func(e_stream):
             return Node('length', value_type=INT_str(values=[len(e_stream.to_bytes())]))
 
@@ -435,11 +435,11 @@ class PDFObj(object):
         e_length_entry = make_wrapped_node('E_Length',
                                           node = e_length,
                                           prefix = ["/Length "])
-        
+
         e_dic = PDFObj.get_dictionary('dico',
                                       nodes=[e_filter_entry, e_length_entry],
                                       indirect=False)
-        
+
         e_wrapped_stream = make_wrapped_node('WStream',
                                             node = e_stream,
                                             prefix = ["\nstream\n"],
@@ -474,7 +474,7 @@ class PDFObj(object):
                        " /Length {length:d}"
                        " /Filter /DCTDecode >>\n"
                        "stream\n").format(width=w, height=h, length=length)
-        
+
         e_pref = Node('XObject_prefix', values=[xobj_prefix])
 
         xobj_suffix = 'endstream'
@@ -497,7 +497,7 @@ class PDFObj(object):
 
         contents = ("<</Length {length:d}>>\n"
                     "stream\n").format(length=len(cmd_str)) + cmd_str + "endstream"
-        
+
         e_contents_internals = Node('IMG_XObj_contents_' + name, values=[contents])
         e_contents = PDFObj.create_wrapped_obj('IMG_XObj_contents_' + name, e_contents_internals)
 
@@ -525,7 +525,7 @@ class PDFObj(object):
                                    node=e_count_nb,
                                    prefix=["/Count "],
                                    suffix=["\n"])
-        
+
         if parent_id is not None:
             e_parent_id = Node("parent_id", value_type=INT_str(values=[parent_id]))
             e_parent = make_wrapped_node("Parent_E",
@@ -587,7 +587,7 @@ class PDFObj(object):
                                       suffix=[" 0 R\n"])
 
         e_suffix = Node('suffix', values=["/Type /Page\n>>"])
-        
+
         e_optional_entries = Node('other_entries', values=[''])
 
         l = [e_prefix, e_parent, e_media_box, e_resources, e_contents, e_optional_entries, e_suffix]
@@ -600,7 +600,7 @@ class PDFObj(object):
 
     @staticmethod
     def __generate_pagetree_flat(pdf_contents):
-        '''              
+        '''
         postcondition: the catalog Node shall be put at the end
         '''
         l = []
@@ -625,7 +625,7 @@ class PDFObj(object):
 
     @staticmethod
     def __generate_pagetree_pageloop(pdf_contents):
-        '''              
+        '''
         postcondition: the catalog Node shall be put at the end
         '''
         l = []
@@ -867,13 +867,13 @@ class PDFObj(object):
             e_random_obj = PDFObj.get_stream('random_obj', stream=b'RANDOM OBJECT!')
 
             rand_obj_len = len(e_random_obj.to_bytes())
-            
+
             incomplete_trailer = ("trailer\n"
                                   "<< /Size {size:d}\n"
                                   "/Root {root_id:d} 0 R\n"
                                   "/Prev \n>>\n"
                                   "startxref\n{xref_off:d}\n%%EOF\n").format(size=nb_objs+1, root_id=catalog_id, xref_off=off)
-            
+
             nt_off_approx1 = off + len(xref_str) + len(incomplete_trailer) + rand_obj_len
             nt_off_approx2 = nt_off_approx1 + len(str(nt_off_approx1))
 
@@ -889,9 +889,9 @@ class PDFObj(object):
                            "/Prev {next_trailer_off:d}\n>>\n"
                            "startxref\n{xref_off:d}\n%%EOF\n")
             trailer_str = trailer_str.format(size=nb_objs+1, root_id=catalog_id, next_trailer_off=nt_off_approx2, xref_off=off)
-                           
+
             e_trailer = Node('trailer', values=[trailer_str])
-            
+
             off_rand_obj = off + len(xref_str) + len(trailer_str)
 
             xref2_str = ("xref\n"
@@ -978,7 +978,7 @@ class PDFObj(object):
                 mb_nodes = [Node('X', values=['0']), Node('Y', values=['0']),
                            PDFObj.get_number('width', int_m=50, int_M=1000, enforce_unsigned=False, indirect=False),
                            PDFObj.get_number('height', int_m=50, int_M=1000, enforce_unsigned=False, indirect=False)]
-                
+
                 page_leaf = PDFObj.make_page_leaf('JPG_leaf_%d-%d'%(i,j),
                                                   resources_id=internals.e_resources.get_private(),
                                                   contents_id=internals.e_contents.get_private(),
@@ -1152,14 +1152,14 @@ class PDFContents(NodeAbstraction):
             l = []
             for idx in range(nb_onodes):
                 l.append(nodes_args[i+2+idx])
-                
+
             itl = PageLeaf_Internals(nodes_args[i], nodes_args[i+1], l)
             pl = PageLeaf(nodes_args[i+nb_onodes+2], nodes_args[i+nb_onodes+3], nodes_args[i+nb_onodes+4],
                           nodes_args[i+nb_onodes+5], nodes_args[i+nb_onodes+6])
             new_leafs.append((itl, pl))
 
             i += (7 + nb_onodes)
-            
+
         self.leafs = new_leafs
 
     def make_private(self):
@@ -1172,7 +1172,7 @@ class PDF_DataModel(DataModel):
     file_extension = 'pdf'
 
     def build_data_model(self):
-               
+
         PDFObj.external_pdf_objs = gather_pdf_objects()
 
         e_jpg = self.get_external_atom(dm_name='jpg', data_id='JPG_00')
@@ -1288,12 +1288,12 @@ if __name__ == "__main__":
     e2 = Node('test', base_node=e)
     print(e2.to_bytes())
     print('id(e2): ', e2.get_private())
-    
+
     e2.set_private('OK!')
     print('new_id(e2): ', e2.get_private())
 
     print('id(e) : ', e.get_private())
-    
+
 
     print("\n[ PDF generation ]\n")
 

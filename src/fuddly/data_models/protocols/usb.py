@@ -59,7 +59,7 @@ class USB_DEFS:
     USB_CLASS_MISC = 0xef
     USB_CLASS_APP_SPEC = 0xfe
     USB_CLASS_VENDOR_SPEC = 0xff
-    
+
     USB_SUBCLASS_VENDOR_SPEC	= 0xff
 
 

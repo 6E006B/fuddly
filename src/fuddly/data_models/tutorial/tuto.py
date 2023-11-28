@@ -26,18 +26,18 @@ class MyDF_DataModel(DataModel):
              {'section_type': MH.Ordered,
               'duplicate_mode': MH.Copy,
               'contents': [
-                  
+
                   {'contents': BitField(subfield_sizes=[21,2,1], endian=VT.BigEndian,
                                         subfield_values=[None, [0b10], [0,1]],
                                         subfield_val_extremums=[[500, 600], None, None]),
                    'name': 'val1',
                    'qty': (1, 5)},
-                  
+
                   {'name': 'val22'},
 
                   {'name': 'val21-qty',
                    'contents': UINT16_be(values=[2,4])},
-                  
+
                   {'name': 'middle',
                    'custo_set': MH.Custo.NTerm.FrozenCopy,
                    'custo_clear': MH.Custo.NTerm.MutableClone,
@@ -47,25 +47,25 @@ class MyDF_DataModel(DataModel):
                    'contents': [{
                        'section_type': MH.Random,
                        'contents': [
-                           
+
                            {'contents': String(values=['OK', 'KO'], size=2),
                             'name': 'val2',
                             'qty': (1, 3)},
-                           
+
                            {'name': 'val21',
                             'qty_from': 'val21-qty',
                             'clone': 'val1'},
-                           
+
                            {'name': 'USB_desc',
                             'import_from': 'usb',
                             'data_id': 'STR'},
-                           
+
                            {'contents': lambda x: Node('cts', values=[x[0].to_bytes() \
                                                                       + x[1].to_bytes()]),
                             'name': 'val22',
                             'node_args': [('val21', 2), 'val3']}
                        ]}]},
-                  
+
                   {'contents': String(max_sz = 10),
                    'name': 'val3',
                    'sync_qty_with': 'val1',
@@ -76,24 +76,24 @@ class MyDF_DataModel(DataModel):
                         'contents': UINT16_be(min=0xeeee, max=0xff56),
                         'determinist': True}]}
               ]},
-             
+
              # block 2
              {'section_type': MH.Pick,
               'weights': (10,5),
               'contents': [
                   {'contents': String(values=['PLIP', 'PLOP'], size=4),
                    'name': 'val4'},
-                  
+
                   {'contents': SINT16_be(values=[-1, -3, -5, 7]),
                    'name': 'val5'}
               ]},
-            
+
              # block 3
              {'section_type': MH.FullyRandom,
               'contents': [
                   {'contents': String(values=['AAA', 'BBBB', 'CCCCC']),
                    'name': ('val21', 2)},
-                  
+
                   {'contents': UINT8(values=[2, 4, 6, 8]),
                    'qty': (2, 3),
                    'name': 'val7'}
