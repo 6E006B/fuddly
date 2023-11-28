@@ -30,8 +30,8 @@ import re
 import inspect
 import uuid
 
-from framework.global_resources import config_folder
-from framework.config import config
+from ..framework.global_resources import config_folder
+from ..framework.config import config
 import shlex
 
 term = config("FmkPlumbing", path=[config_folder]).terminal

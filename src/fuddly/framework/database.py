@@ -32,10 +32,10 @@ from typing import Optional
 
 from . import global_resources as gr
 from .config import config
-from libs import external_modules as em
+from ..libs import external_modules as em
 from .knowledge.feedback_collector import FeedbackSource
-from libs.external_modules import *
-from libs.utils import chunk_lines
+from ..libs.external_modules import *
+from ..libs.utils import chunk_lines
 
 
 def regexp(expr, item):

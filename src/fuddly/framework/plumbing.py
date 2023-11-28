@@ -55,15 +55,19 @@ from .tactics_helpers import *
 from .target_helpers import *
 from .cosmetics import aligned_stdout
 from .config import config, config_dot_proxy
-from libs.utils import *
+from ..libs.utils import *
 
 from . import generic_data_makers
 
-import data_models  # needed by importlib.reload
-import projects  # needed by importlib.reload
+try:
+    import data_models  # needed by importlib.reload
+    import projects  # needed by importlib.reload
+except ModuleNotFoundError:
+    from .. import data_models
+    from .. import projects
 
 from .global_resources import *
-from libs.utils import *
+from ..libs.utils import *
 
 import io
 

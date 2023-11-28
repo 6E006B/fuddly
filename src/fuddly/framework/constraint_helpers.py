@@ -24,7 +24,7 @@
 import copy
 from typing import Tuple, List
 
-from libs.external_modules import *
+from ..libs.external_modules import *
 
 if csp_module:
     from constraint import *

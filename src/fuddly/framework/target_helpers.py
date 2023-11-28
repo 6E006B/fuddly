@@ -26,7 +26,7 @@ import threading
 
 from .data import Data
 from .knowledge.feedback_collector import FeedbackSource
-from libs.external_modules import *
+from ..libs.external_modules import *
 
 
 class TargetStuck(Exception):

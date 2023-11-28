@@ -31,13 +31,13 @@ import itertools
 
 from typing import List, Tuple
 
-from libs.external_modules import *
-from libs.utils import get_caller_object
+from ..libs.external_modules import *
+from ..libs.utils import get_caller_object
 from .data import Data
 from .global_resources import *
 from .database import Database
 from .knowledge.feedback_collector import FeedbackSource
-from libs.utils import ExternalDisplay, Accumulator
+from ..libs.utils import ExternalDisplay, Accumulator
 from . import global_resources as gr
 
 

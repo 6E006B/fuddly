@@ -29,7 +29,7 @@ import traceback
 import re
 
 from .comm_backends import BackendError
-from libs.external_modules import *
+from ..libs.external_modules import *
 from .global_resources import *
 
 

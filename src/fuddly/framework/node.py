@@ -46,7 +46,7 @@ from random import shuffle
 sys.path.append(".")
 
 from .basic_primitives import *
-from libs.external_modules import *
+from ..libs.external_modules import *
 from .global_resources import *
 from .error_handling import *
 from .constraint_helpers import CSP, ConstraintError
@@ -54,8 +54,8 @@ from .constraint_helpers import CSP, ConstraintError
 from . import value_types as fvt
 from . import encoders as enc
 
-from libs import debug_facility as dbg
-from libs.utils import chunk_lines
+from ..libs import debug_facility as dbg
+from ..libs.utils import chunk_lines
 
 DEBUG = dbg.DM_DEBUG
 DEBUG_PRINT = dbg.DEBUG_PRINT

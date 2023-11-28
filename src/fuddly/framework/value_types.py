@@ -44,7 +44,7 @@ from .error_handling import *
 from .global_resources import *
 from .knowledge.information import *
 
-from libs import debug_facility as dbg
+from ..libs import debug_facility as dbg
 
 DEBUG = dbg.VT_DEBUG
 

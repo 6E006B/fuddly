@@ -26,9 +26,9 @@ from __future__ import print_function
 import functools
 
 from .information import *
-from libs.utils import Term
+from ...libs.utils import Term
 
-from libs import debug_facility as dbg
+from ...libs import debug_facility as dbg
 
 if dbg.KNOW_DEBUG:
     DEBUG_PRINT = dbg.DEBUG_PRINT

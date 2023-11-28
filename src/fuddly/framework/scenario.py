@@ -32,8 +32,8 @@ from .global_resources import *
 from .data import Data, DataProcess, EmptyDataProcess, DataAttr, NodeBackend
 from .node import Node
 from .target_helpers import Target
-from libs.external_modules import *
-from libs.utils import find_file, retrieve_app_handler, Task
+from ..libs.external_modules import *
+from ..libs.utils import find_file, retrieve_app_handler, Task
 
 data_graph_desc_fstr = "Data('{!a}'...)"
 

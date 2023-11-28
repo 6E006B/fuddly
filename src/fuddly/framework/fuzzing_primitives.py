@@ -33,9 +33,9 @@ from . import value_types as vtype
 from . import node as dm
 
 from .basic_primitives import *
-from libs.external_modules import *
+from ..libs.external_modules import *
 
-from libs import debug_facility as dbg
+from ..libs import debug_facility as dbg
 
 DEBUG = dbg.MW_DEBUG
 DEBUG_PRINT = dbg.DEBUG_PRINT
