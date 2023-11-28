@@ -24,7 +24,7 @@
 ################################################################################
 
 import sys
-from framework.plumbing import *
+from fuddly.framework.plumbing import *
 
 import argparse
 
