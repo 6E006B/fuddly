@@ -28,24 +28,42 @@ from fuddly.framework.plumbing import *
 
 import argparse
 
-parser = argparse.ArgumentParser(description='Arguments for Fuddly Shell')
 
-group = parser.add_argument_group('Miscellaneous Options')
-group.add_argument('-f', '--fmkdb', metavar='PATH', help='Path to an alternative fmkDB.db. Create '
-                                                         'it if it does not exist.')
-group.add_argument('--external-display', action='store_true', help='Display information on another terminal.')
-group.add_argument('--quiet', action='store_true', help='Limit the information displayed at startup.')
+def main():
+    parser = argparse.ArgumentParser(description="Arguments for Fuddly Shell")
 
-args = parser.parse_args()
+    group = parser.add_argument_group("Miscellaneous Options")
+    group.add_argument(
+        "-f",
+        "--fmkdb",
+        metavar="PATH",
+        help="Path to an alternative fmkDB.db. Create " "it if it does not exist.",
+    )
+    group.add_argument(
+        "--external-display",
+        action="store_true",
+        help="Display information on another terminal.",
+    )
+    group.add_argument(
+        "--quiet",
+        action="store_true",
+        help="Limit the information displayed at startup.",
+    )
 
-fmkdb = args.fmkdb
-external_display = args.external_display
-quiet = args.quiet
+    args = parser.parse_args()
 
-fmk = FmkPlumbing(external_term=external_display, fmkdb_path=fmkdb, quiet=quiet)
-fmk.start()
+    fmkdb = args.fmkdb
+    external_display = args.external_display
+    quiet = args.quiet
 
-shell = FmkShell("Fuddly Shell", fmk)
-shell.cmdloop()
+    fmk = FmkPlumbing(external_term=external_display, fmkdb_path=fmkdb, quiet=quiet)
+    fmk.start()
 
-sys.exit(0)
+    shell = FmkShell("Fuddly Shell", fmk)
+    shell.cmdloop()
+
+    sys.exit(0)
+
+
+if __name__ == "__main__":
+    main()
