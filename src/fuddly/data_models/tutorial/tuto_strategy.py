@@ -1,9 +1,9 @@
-from framework.plumbing import *
-from framework.tactics_helpers import *
-from framework.global_resources import *
-from framework.scenario import *
-from framework.data import Data, DataProcess
-from framework.value_types import *
+from fuddly.framework.plumbing import *
+from fuddly.framework.tactics_helpers import *
+from fuddly.framework.global_resources import *
+from fuddly.framework.scenario import *
+from fuddly.framework.data import Data, DataProcess
+from fuddly.framework.value_types import *
 
 tactics = Tactics()
 

@@ -27,7 +27,7 @@ import random
 from ..global_resources import workspace_folder
 from ..target_helpers import Target
 from ..knowledge.feedback_collector import FeedbackCollector
-from libs.external_modules import cups_module, cups
+from ...libs.external_modules import cups_module, cups
 
 
 class PrinterTarget(Target):

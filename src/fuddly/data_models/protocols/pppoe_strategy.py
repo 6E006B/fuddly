@@ -21,12 +21,12 @@
 #
 ################################################################################
 
-from framework.tactics_helpers import *
-from framework.scenario import *
-from framework.global_resources import *
-from framework.data_model import MH
-from framework.target_helpers import *
-from framework.data import DataProcess
+from ...framework.tactics_helpers import *
+from ...framework.scenario import *
+from ...framework.global_resources import *
+from ...framework.data_model import MH
+from ...framework.target_helpers import *
+from ...framework.data import DataProcess
 
 tactics = Tactics()
 

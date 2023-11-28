@@ -21,8 +21,8 @@
 #
 ################################################################################
 
-from framework.data_model import *
-from framework.value_types import *
+from ...framework.data_model import *
+from ...framework.value_types import *
 
 
 class PPPOE_DataModel(DataModel):

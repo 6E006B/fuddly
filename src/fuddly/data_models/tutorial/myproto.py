@@ -23,9 +23,9 @@
 #
 ################################################################################
 
-from framework.value_types import *
-from framework.data_model import *
-from framework.encoders import *
+from fuddly.framework.value_types import *
+from fuddly.framework.data_model import *
+from fuddly.framework.encoders import *
 
 class MyProto_DataModel(DataModel):
 

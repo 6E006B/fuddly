@@ -21,9 +21,9 @@
 #
 ################################################################################
 
-from framework.data_model import *
-from framework.node_builder import NodeBuilder
-from framework.value_types import *
+from ...framework.data_model import *
+from ...framework.node_builder import NodeBuilder
+from ...framework.value_types import *
 
 
 class HTTPModel(DataModel):

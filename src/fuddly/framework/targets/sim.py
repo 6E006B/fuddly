@@ -32,7 +32,7 @@ import serial
 from ..node import Node, NodeSemanticsCriteria
 from ..target_helpers import Target
 from ..value_types import GSMPhoneNum
-from .libs.external_modules import serial_module, Color
+from ...libs.external_modules import serial_module, Color
 
 
 class SIMTarget(Target):

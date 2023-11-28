@@ -23,10 +23,10 @@
 
 import time
 
-from framework.plumbing import *
-from framework.target_helpers import *
-from framework.logger import *
-from framework.node import *
+from ...framework.plumbing import *
+from ...framework.target_helpers import *
+from ...framework.logger import *
+from ...framework.node import *
 
 project = Project()
 project.default_dm = 'usb'

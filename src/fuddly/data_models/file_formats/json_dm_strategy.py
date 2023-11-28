@@ -1,3 +1,3 @@
-from framework.tactics_helpers import *
+from ...framework.tactics_helpers import *
 
 tactics = Tactics()

@@ -1,16 +1,16 @@
 import sys
 
-from framework.plumbing import *
+from fuddly.framework.plumbing import *
 
-from framework.node import *
-from framework.value_types import *
-from framework.data_model import *
-from framework.encoders import *
-import framework.dmhelpers.xml as xml
-from framework.dmhelpers.json import *
-from framework.dmhelpers.xml import tag_builder as xtb
-from framework.dmhelpers.xml import xml_decl_builder
-from framework.constraint_helpers import Constraint
+from fuddly.framework.node import *
+from fuddly.framework.value_types import *
+from fuddly.framework.data_model import *
+from fuddly.framework.encoders import *
+import fuddly.framework.dmhelpers.xml as xml
+from fuddly.framework.dmhelpers.json import *
+from fuddly.framework.dmhelpers.xml import tag_builder as xtb
+from fuddly.framework.dmhelpers.xml import xml_decl_builder
+from fuddly.framework.constraint_helpers import Constraint
 
 class MyDF_DataModel(DataModel):
 

@@ -1,8 +1,8 @@
 import json
 
-from framework.data_model import *
-from framework.value_types import *
-from framework.dmhelpers.json import json_model_builder, json_builder
+from ...framework.data_model import *
+from ...framework.value_types import *
+from ...framework.dmhelpers.json import json_model_builder, json_builder
 
 class JSON_DataModel(DataModel):
 

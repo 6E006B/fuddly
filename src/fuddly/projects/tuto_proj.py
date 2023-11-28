@@ -23,16 +23,16 @@
 
 import socket
 
-from framework.comm_backends import Serial_Backend
-from framework.plumbing import *
-from framework.targets.debug import TestTarget
-from framework.targets.network import NetworkTarget
-from framework.knowledge.information import *
-from framework.knowledge.feedback_handler import TestFbkHandler
-from framework.scenario import *
-from framework.global_resources import UI
-from framework.evolutionary_helpers import DefaultPopulation, CrossoverHelper
-from framework.data import DataProcess
+from ..framework.comm_backends import Serial_Backend
+from ..framework.plumbing import *
+from ..framework.targets.debug import TestTarget
+from ..framework.targets.network import NetworkTarget
+from ..framework.knowledge.information import *
+from ..framework.knowledge.feedback_handler import TestFbkHandler
+from ..framework.scenario import *
+from ..framework.global_resources import UI
+from ..framework.evolutionary_helpers import DefaultPopulation, CrossoverHelper
+from ..framework.data import DataProcess
 
 project = Project()
 project.default_dm = ['mydf', 'myproto']

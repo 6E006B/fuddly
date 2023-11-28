@@ -34,7 +34,7 @@ from ..target_helpers import Target
 from ..basic_primitives import rand_string
 from ..knowledge.feedback_collector import FeedbackCollector
 from ..data import Data
-from libs.external_modules import Color
+from ...libs.external_modules import Color
 
 class IncorrectTargetError(Exception): pass
 class ShmemMappingError(Exception): pass

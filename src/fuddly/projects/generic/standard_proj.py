@@ -23,11 +23,11 @@
 
 import socket
 
-from framework.comm_backends import Shell_Backend
-from framework.plumbing import *
-from framework.targets.local import LocalTarget
-from framework.targets.network import NetworkTarget
-from framework.targets.printer import PrinterTarget
+from ...framework.comm_backends import Shell_Backend
+from ...framework.plumbing import *
+from ...framework.targets.local import LocalTarget
+from ...framework.targets.network import NetworkTarget
+from ...framework.targets.printer import PrinterTarget
 
 project = Project()
 project.default_dm = ['mydf','jpg']

@@ -32,13 +32,13 @@ import zlib
 
 sys.path.append('.')
 
-from framework.plumbing import *
-from framework.node import *
-from framework.data_model import *
-from framework.value_types import *
-from framework.fuzzing_primitives import *
-from framework.basic_primitives import *
-import framework.global_resources as gr
+from ...framework.plumbing import *
+from ...framework.node import *
+from ...framework.data_model import *
+from ...framework.value_types import *
+from ...framework.fuzzing_primitives import *
+from ...framework.basic_primitives import *
+from ...framework import global_resources as gr
 
 def gather_pdf_objects(path=gr.imported_data_folder):
 

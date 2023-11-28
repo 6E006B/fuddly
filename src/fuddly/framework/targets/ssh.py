@@ -3,7 +3,7 @@ import socket
 import time
 
 from ..target_helpers import Target, TargetError
-from .libs.external_modules import *
+from ...libs.external_modules import *
 from ..global_resources import *
 from ..comm_backends import SSH_Backend, BackendError
 from ..knowledge.feedback_collector import FeedbackCollector

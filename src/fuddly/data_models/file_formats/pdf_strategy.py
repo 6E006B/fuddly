@@ -21,8 +21,8 @@
 #
 ################################################################################
 
-from framework.data import Data
-from framework.tactics_helpers import *
+from ...framework.data import Data
+from ...framework.tactics_helpers import *
 
 tactics = Tactics()
 
