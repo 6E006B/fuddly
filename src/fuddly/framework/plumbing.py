@@ -962,8 +962,12 @@ class FmkPlumbing(object):
                 eval("importlib.reload(" + prefix + name + ")")
                 eval("importlib.reload(" + prefix + name + "_strategy" + ")")
             else:
-                exec("import " + prefix + name)
-                exec("import " + prefix + name + "_strategy")
+                try:
+                    exec("import " + prefix + name)
+                    exec("import " + prefix + name + "_strategy")
+                except ModuleNotFoundError:
+                    exec("import fuddly." + prefix + name)
+                    exec("import fuddly." + prefix + name + "_strategy")
         except:
             if self._quiet:
                 return None
@@ -1144,7 +1148,10 @@ class FmkPlumbing(object):
                 exec("import importlib")
                 eval("importlib.reload(" + prefix + name + "_proj" + ")")
             else:
-                exec("import " + prefix + name + "_proj")
+                try:
+                    exec("import " + prefix + name + "_proj")
+                except ModuleNotFoundError:
+                    exec("import fuddly." + prefix + name + "_proj")
         except:
             if self._quiet:
                 return None
