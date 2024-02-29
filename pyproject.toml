@@ -22,6 +22,9 @@ dependencies = {file = ["requirements.txt"]}
 [tool.setuptools]
 include-package-data = true
 
+[project.scripts]
+fuddly_shell = "fuddly:fuddly_shell.main"
+
 [project.urls]
 "Homepage" = "https://github.com/k0retux/fuddly"
 "Bug Tracker" = "https://github.com/k0retux/fuddly/issues"
