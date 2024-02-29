@@ -292,7 +292,6 @@ class FmkTask(threading.Thread):
 
 
 class FmkPlumbing(object):
-
     """
     Defines the methods to operate every sub-systems of fuddly
     """
@@ -963,11 +962,11 @@ class FmkPlumbing(object):
                 eval("importlib.reload(" + prefix + name + "_strategy" + ")")
             else:
                 try:
-                    exec("import " + prefix + name)
-                    exec("import " + prefix + name + "_strategy")
-                except ModuleNotFoundError:
                     exec("import fuddly." + prefix + name)
                     exec("import fuddly." + prefix + name + "_strategy")
+                except ModuleNotFoundError:
+                    exec("import " + prefix + name)
+                    exec("import " + prefix + name + "_strategy")
         except:
             if self._quiet:
                 return None
@@ -1149,9 +1148,9 @@ class FmkPlumbing(object):
                 eval("importlib.reload(" + prefix + name + "_proj" + ")")
             else:
                 try:
-                    exec("import " + prefix + name + "_proj")
-                except ModuleNotFoundError:
                     exec("import fuddly." + prefix + name + "_proj")
+                except ModuleNotFoundError:
+                    exec("import " + prefix + name + "_proj")
         except:
             if self._quiet:
                 return None
